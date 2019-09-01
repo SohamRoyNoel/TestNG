@@ -1,0 +1,37 @@
+************************************************************************
+jars:
+selenium-java/selenium-java-2.31.0-srcs.jar.zip( 565 k) : http://www.java2s.com/Code/Jar/s/Downloadseleniumjava2310srcsjar.htm
+selenium-java/selenium-java-2.25.0.jar.zip( 175 k) : http://www.java2s.com/Code/Jar/s/Downloadseleniumjava2250jar.htm
+************************************************************************
+package newpackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class NewTest {
+	public String url = "https://sts.cognizant.com/adfs/ls/?client-request-id=bda49db8-5970-4e31-b3ea-b1abe0032371&username=&wa=wsignin1.0&wtrealm=urn%3afederation%3aMicrosoftOnline&wctx=estsredirect%3d2%26estsrequest%3drQIIAeNisFLKKCkpKLbS18_PS03OT8_LrErMK9FDZuUWCXEJ7Ji7ZG9BpKHf5lcbVz9gVi6cxciLomYVozVhg_SDHX19goP99R1LSzKCU4vKMpNTi_Udk4sPMarGp5mlWFhaJqbqJqZapOmapFim6VqkmqbqphmZGienpKUYmZmkXWBkfMHIeIuJNTgxN8doFjOj_iZmlZRUA4tkEwNzXUPLJEtdEyPzFF3LtFQL3dQUoFYTYwOD5ETzCyw8r1h4DJitODi4BBgkGBQYfrAwLmIFemza4prO-L_a_gvEZFKstjMwnGLV93OP8vYICc3yCqnM8w138qw0qrQsTTczM68scs9Ld7XwDSoM0DfPD6g0i7Q1szKcwMZ7io3hAxtjBzvDAU7GW1wiRgaGlroGQGSoYGhkZWJpZWgUBQA1";
+	public WebDriver driver;
+	
+	@BeforeTest
+	public void setURL() {
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get(url);
+	}
+	
+	  @Test
+	  public void f() {
+		  driver.findElement(By.xpath("//*[@id=\"userNameInput\"]")).sendKeys("796394");
+			driver.findElement(By.xpath("//*[@id=\"passwordInput\"]")).sendKeys("Noelle123$$%%");
+			driver.findElement(By.xpath("//*[@id=\"Log_On1\"]")).click();
+	  }
+	  
+	  @AfterTest
+		public void endTest() {
+			driver.quit();
+		}
+}
